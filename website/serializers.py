@@ -174,13 +174,24 @@ class TimeLogSerializer(serializers.ModelSerializer):
 class ActivityLogSerializer(serializers.ModelSerializer):
     class Meta:
         model = ActivityLog
-        fields = ["id", "user", "window_title", "url", "recorded_at", "created"]
+        fields = [
+            "id",
+            "user",
+            "window_title",
+            "url",
+            "domain",
+            "activity_description",
+            "start_time",
+            "end_time",
+            "recorded_at",
+            "created",
+        ]
         read_only_fields = [
             "id",
             "user",
             "recorded_at",
             "created",
-        ]  # Auto-filled fields
+        ]
 
 
 class RepoSerializer(serializers.ModelSerializer):

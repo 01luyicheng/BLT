@@ -1652,7 +1652,11 @@ class TimeLog(models.Model):
 class ActivityLog(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="activity_logs")
     window_title = models.CharField(max_length=255)
-    url = models.URLField(null=True, blank=True)  # URL field for activity-related URL
+    url = models.URLField(null=True, blank=True)
+    domain = models.URLField(null=True, blank=True)
+    activity_description = models.CharField(max_length=255, blank=True)
+    start_time = models.DateTimeField(null=True, blank=True)
+    end_time = models.DateTimeField(null=True, blank=True)
     recorded_at = models.DateTimeField(auto_now_add=True)
     created = models.DateTimeField(default=timezone.now, editable=False)
 
